@@ -1,171 +1,10 @@
-
 %!TEX TS-program = xelatex
 %!TEX encoding = UTF-8 Unicode
 %\documentclass[aspectratio=169,xcolor=svgnames,11pt]{beamer}
 \documentclass[xcolor=svgnames,11pt]{beamer}
 %\usepackage{latexsym,amssymb,amsfonts,amsmath}
 
-
-
-% -------------------- beamer setup --------------------- %
-
-% for Introduction - Part 1 - ... Orientation
-% \useoutertheme[subsection=false, shadow]{miniframes} 
-
-\useinnertheme{default}
-\beamertemplatenavigationsymbolsempty
-
-
-
-% ----------------------- fonts ------------------------ %
-
-\usepackage{tgheros}
-\usepackage[eulergreek]{sansmath} %additional math
-
-
-%\usepackage{xltxtra,fontspec,xunicode}
-%\defaultfontfeatures{Scale=MatchLowercase}
-%\setromanfont[Numbers=Uppercase]{Intuitive}
-
-
-% Other Palatino font packages, with math
-% see also http://tex.stackexchange.com/questions/89610
-% and math_fonts.pdf in Latex docs
-% --------------------
-% \usepackage{pxfonts}
-% \usepackage{mathpazo} % add possibly `sc` and `osf` options
-% --------------------
-
-
-
-% ---------------------- graphics ----------------------- %
-
-\setbeamercolor*{structure}{fg=black}
-
-\usepackage{graphicx}
-\usepackage{transparent} % transparent graphics
-\usepackage[abs]{overpic}
-
-\usepackage{textcomp}
-\usepackage{subcaption}
-\graphicspath{{img/}{../}}
-
-
-\usepackage{caption}
-\usepackage{picture}
-
-\usepackage{setspace} % provides \setstretch
-
-% ------------------------ tikz ------------------------- %
-
-\usepackage{tikz}
-\usetikzlibrary{positioning}
-\usetikzlibrary{arrows,decorations.pathmorphing,backgrounds,positioning,fit,matrix,calc}
-
-
-% ----------------------- minted ------------------------ %
-
-% \usepackage{minted}
-
-% %\usemintedstyle{friendly}
-% %\usemintedstyle{autumn}
-% %\usemintedstyle{manni}
-% %\usemintedstyle{tango}
-
-% \newminted[mlinepython]{python}{fontsize=\small, linenos,
-%                		numbersep=11pt,
-%                		gobble=4,
-%                		frame=lines,
-%                         bgcolor=bg,
-%                		framesep=3mm}    
-
-
-
-% ----------------------- other ------------------------ %
-
-\usepackage{hyperref}
-\usepackage{changepage} % for adjust width
-\usepackage{csquotes}
-
-
-
-% http://tex.stackexchange.com/questions/84936/
-\usepackage{enumitem} % Enumitem-Beamer Incompatibility! See
-                                % http://tex.stackexchange.com/a/52299/4912
-\newlist{arrowlist}{itemize}{1}
-\setlist[arrowlist]{label=$\Rightarrow$}
-
-
-\usepackage[english]{babel}
-\usepackage[latin1]{inputenc}
-
-\usepackage[normalem]{ulem}
-\hypersetup{%
-  colorlinks=true,% hyperlinks will be coloured
-  urlcolor=blue,
-}
-\makeatletter
-\DeclareUrlCommand\ULurl@@{%
-  \def\UrlFont{\ttfamily\color{blue}}%
-  \def\UrlLeft{\uline\bgroup}%
-  \def\UrlRight{\egroup}}
-\def\ULurl@#1{\hyper@linkurl{\ULurl@@{#1}}{#1}}
-\DeclareRobustCommand*\ULurl{\hyper@normalise\ULurl@}
-\makeatother
-
-
-\newenvironment{mydescription}[1]                                               
-  {\begin{list}{}%
-   {\renewcommand\makelabel[1]{\textbf{##1}\hfill}%
-   \settowidth\labelwidth{\makelabel{#1}}%
-   \setlength\leftmargin{\labelwidth}
-   \addtolength\leftmargin{\labelsep}}}
-  {\end{list}}
-
-% cite source for content in the frame in bottom right corner
-% usage: \source{here my source}
-\usepackage[absolute,overlay]{textpos}
-\setbeamercolor{framesource}{fg=gray}
-\setbeamerfont{framesource}{size=\scriptsize}
-\newcommand{\source}[1]{\begin{textblock*}{5cm}(0.27cm,8.8cm)
-    \begin{beamercolorbox}[ht=0.5cm,left]{framesource}
-        \usebeamerfont{framesource}\usebeamercolor[fg]{framesource} {#1}
-    \end{beamercolorbox}
-\end{textblock*}}
-\newcommand{\imglabel}[1]{\begin{textblock*}{5cm}(6.17cm,8.5cm)
-    \begin{beamercolorbox}[ht=0.5cm,right]{framesource}
-        \usebeamerfont{framesource}\usebeamercolor[black]{framesource} {#1}
-    \end{beamercolorbox}
-\end{textblock*}}
-
-% ----------------------- stretching ------------------------ %
-
-% from http://tex.stackexchange.com/questions/148365 
-% and https://gist.github.com/navarroj/7789910
-
-\let\svpar\par
-\let\svitemize\itemize
-\let\svenditemize\enditemize
-\let\svitem\item
-\def\newpar{\def\par{\svpar\vfill}}
-\def\newitem{\def\item{\vfill\svitem}}
-\let\svcenter\center
-\let\svendcenter\endcenter
-\let\svcolumn\column
-\let\svendcolumn\endcolumn
-\newlength\columnskip
-\columnskip 0pt
-\def\newcolumn{%
-  \renewenvironment{column}[2]%
-    {\svcolumn{##1}\setlength{\parskip}{\columnskip}##2}%
-    {\svendcolumn\vspace{\columnskip}}}
-
-\newcommand\stretchy{\only<2>{%
-  \newpar\def\item{\svitem\newitem}%
-  \renewenvironment{itemize}{\svitemize}{\svenditemize\newpar\par}%
-  \renewenvironment{center}{\svcenter\newpar}{\svendcenter\newpar}%
-  \newcolumn
-}}
+\usepackage{present}
 
 
 % ---------------------------------------------------- %
@@ -182,75 +21,18 @@
 \date{\today}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ---------------------------------------------------- %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \begin{document}
 
-\definecolor{bg}{rgb}{0.95,0.95,0.95}
-\definecolor{tg}{rgb}{0.35,0.35,0.35}
-
-
-%% \input{frames/front.tex}
-
-%% \input{frames/reproducibility_spectrum.tex}
+%\input{frames/back.tex}
 
 \input{frames/problems_and_solution.tex}
 
-\begin{frame}{}
-  \source{{ \textbf{\textit{@Felix11H}}}}
-  
-  \vspace{-0.3cm}
-  \begin{figure}
-    \centering
-    \only<1-6>{\imglabel{0.5.2}}
-    \includegraphics<1>[width=0.88\textwidth]{%
-      img/smt052_records.png}%
-    \includegraphics<2>[width=0.88\textwidth]{%
-      img/smt052_records_record-highlight.png}%    
-    \includegraphics<3>[width=0.88\textwidth]{%
-      img/smt052_records_duration-highlight.png}%
-    \includegraphics<4>[width=0.88\textwidth]{%
-      img/smt052_records_date-highlight.png}%    
-    \includegraphics<5>[width=0.88\textwidth]{%
-      img/smt052_records_version-highlight.png}%    
-    \includegraphics<6>[width=0.88\textwidth]{%
-      img/smt052_records.png}%
-    \only<7-13>{\imglabel{0.7.0-dev}}%
-    \includegraphics<7>[width=0.88\textwidth]{%
-      img/smt060dev_records.png}%
-    \includegraphics<8>[width=0.88\textwidth]{%
-      img/smt060dev_records_input-output-data-highlight.png}%
-    \includegraphics<9>[width=0.88\textwidth]{%
-      img/smt060dev_records_data-view-highlight.png}%
-    \includegraphics<10>[width=0.88\textwidth]{%
-      img/smt060dev_data.png}%
-    \includegraphics<11>[width=0.88\textwidth]{%
-      img/smt060dev_data_data-highlight.png}%
-    \includegraphics<12>[width=0.88\textwidth]{%
-      img/smt060dev_data_filesize-highlight.png}%
-    \includegraphics<13>[width=0.88\textwidth]{%
-      img/smt060dev_data_records-highlight.png}%
-    \only<14-16>{\imglabel{0.7.3}}
-    \includegraphics<14>[width=0.88\textwidth]{%
-      img/smt070_records.png}%
-    \includegraphics<15>[width=0.88\textwidth]{%
-      img/smt070_records_input-output-highlight.png}%
-    \includegraphics<16>[width=0.88\textwidth]{%
-      img/smt070_records_data-view-highlight.png}%
-
-  \end{figure}
-   
-\end{frame}
-
+\input{frames/sumatra_dev}
 
 \input{frames/after_gsoc.tex}
-
-%% \input{frames/sumatra_simulation_management.tex}
-
-%% \input{frames/sumatra_open_science.tex}
 
 %% \input{frames/back.tex}
 
