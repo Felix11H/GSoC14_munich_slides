@@ -54,6 +54,7 @@
 \usepackage{caption}
 \usepackage{picture}
 
+\usepackage{setspace} % provides \setstretch
 
 % ------------------------ tikz ------------------------- %
 
@@ -204,21 +205,33 @@
   \vspace{-0.3cm}
   \begin{figure}
     \centering
+    \only<1-6>{\imglabel{0.5.2}}
     \includegraphics<1>[width=0.88\textwidth]{%
-      img/smt052_records.png} %
-    \only<1>{\imglabel{0.5.2}}
+      img/smt052_records.png}%
     \includegraphics<2>[width=0.88\textwidth]{%
-      img/smt060dev_records.png} %
-    \only<2>{\imglabel{0.7.0-dev}}
+      img/smt052_records_record-highlight.png}%    
     \includegraphics<3>[width=0.88\textwidth]{%
-      img/smt060dev_data.png} %
-    \only<3>{\imglabel{0.7.0-dev}}
+      img/smt052_records_duration-highlight.png}%
     \includegraphics<4>[width=0.88\textwidth]{%
-      img/smt070_records.png} %
-    \only<4>{\imglabel{0.7.3}}
+      img/smt052_records_date-highlight.png}%    
     \includegraphics<5>[width=0.88\textwidth]{%
-      img/smt070_data.png} %
-    \only<5>{\imglabel{0.7.3}}
+      img/smt052_records_version-highlight.png}%    
+    \includegraphics<6>[width=0.88\textwidth]{%
+      img/smt052_records.png}%
+    \only<7-10>{\imglabel{0.7.0-dev}}%
+    \includegraphics<7>[width=0.88\textwidth]{%
+      img/smt060dev_records.png}%
+    \includegraphics<8>[width=0.88\textwidth]{%
+      img/smt060dev_records_input-output-data-highlight.png}%
+    \includegraphics<9>[width=0.88\textwidth]{%
+      img/smt060dev_records_data-view-highlight.png}%
+    \includegraphics<10>[width=0.88\textwidth]{%
+      img/smt060dev_data.png}%
+    \only<11-12>{\imglabel{0.7.3}}
+    \includegraphics<11>[width=0.88\textwidth]{%
+      img/smt070_records.png}%
+    %% \includegraphics<12>[width=0.88\textwidth]{%
+    %%   img/smt070_records_data-view-highlight.png}%
   \end{figure}
    
 \end{frame}
